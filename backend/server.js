@@ -48,5 +48,10 @@ app.get("/post", function (req, res) {
     }
   });
 });
+app.get("/hello", function (req, res) {
+  res.send("POST request to the homepage");
+});
+const pageRoute = require("./routes/post");
+app.use("/anotherpage", pageRoute);
 app.get("/", (req, res) => res.send("Hello World!"));
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`http://localhost:${port}`));
