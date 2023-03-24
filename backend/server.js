@@ -20,16 +20,10 @@ mongoose
   .catch((error) => {
     console.log("Database connection error: " + error);
   });
-const sch = {
-  name: String,
-  email: String,
-  id: Number,
-  jobStatus: String,
-};
-const monmodel = mongoose.model("NEWCOL", sch);
+const userModel = require("./models/UserSchema");
 app.post("/post", async (req, res) => {
   console.log("inside post function");
-  const data = new monmodel({
+  const data = new userModel({
     name: req.body.name,
     email: req.body.email,
     id: req.body.id,
